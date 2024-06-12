@@ -31,7 +31,7 @@ jobs:
 
     - name: Trigger Jenkins Job
       run: |
-        JENKINS_JOB_NAME="your-jenkins-job-name"
+        JENKINS_JOB_NAME="flask-app"
         JENKINS_CRUMB=$(curl -u "$JENKINS_USER:$JENKINS_API_TOKEN" "$JENKINS_URL/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)")
         curl -u "$JENKINS_USER:$JENKINS_API_TOKEN" -H "$JENKINS_CRUMB" -X POST "$JENKINS_URL/job/$JENKINS_JOB_NAME/build"
 
